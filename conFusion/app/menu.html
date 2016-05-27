@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="confusionApp">
 
 <head>
      <meta charset="utf-8">
@@ -26,12 +26,117 @@
 <body>
 
     <div class="container">
-        <div class="row row-content">
+        <div class="row row-content" ng-controller="menuController as menuCtrl">
             <div class="col-xs-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(1)}">
+                        <a ng-click="menuCtrl.select(1)" aria-control="allmenu" role="tab">The Menu</a>
+                    </li>
+                     <li role="presentation" ng-class="{active:menuCtrl.isSelected(2)}">
+                        <a ng-click="menuCtrl.select(2)" aria-control="appetizer" role="tab">Appetizer</a>
+                    </li>
+                     <li role="presentation" ng-class="{active:menuCtrl.isSelected(3)}">
+                        <a ng-click="menuCtrl.select(3)" aria-control="mains" role="tab">Mains</a>
+                    </li>
+                      <li role="presentation" ng-class="{active:menuCtrl.isSelected(4)}">
+                        <a ng-click="menuCtrl.select(4)" aria-control="disert" role="tab">Disert</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                <ul class="media-list tab-pane fade in active">
+                <li class="media" ng-repeat="dish in menuCtrl.dishes">
+                    <div class="media-left media-middle">
+                        <a href="#">
+                            <img ng-src="{{dish.image}}" class="media-object img-thumbnail" alt="{{dish.name}}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{dish.name | uppercase}}
+                        <span class="label label-danger label-xs">{{dish.label}}</span>
+                        <span class="badge">{{dish.price | currency}}</span>
+                        </h2>
+                        <p>{{dish.description}}</p>
+                        <!--p>Comment:{{dish.comment}}</p>
+                        <p>Please type your comment</p>
+                        <input type="text" name="comment" ng-model="dish.comment"-->
+                    </div>
+                </li>
+                </ul>
+                </div>
             </div>
         </div>
     </div>
-
+<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+<script>
+    var app = angular.module('confusionApp',[]);
+    
+    app.controller('menuController',function(){
+    
+       var dishes=[{
+                                name:'Uthapizza',
+                                image: 'images/uthapizza.png',
+                                category: 'mains',
+                                label: 'Hot',
+                                price: '4.99',
+                                description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerigola olives, ripe vine cherry tomatoes, vidalia onion, Guntur chillies and Buffalo Paneer.',
+                                comment:''
+                            },
+                            {
+                                name:'Zucchipakoda',
+                                image: 'images/zucchipakoda.png',
+                                category: 'appetizer',
+                                label: '',
+                                price: '1.99',
+                                description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerigola olives, ripe vine cherry tomatoes, vidalia onion, Guntur chillies and Buffalo Paneer.',
+                                comment:''
+                            },
+                            {
+                                name:'Vadonut',
+                                image: 'images/vadonut.png',
+                                category: 'appetizer',
+                                label: '',
+                                price: '3.99',
+                                description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerigola olives, ripe vine cherry tomatoes, vidalia onion, Guntur chillies and Buffalo Paneer.',
+                                comment:''
+                            },
+                               {
+                                name:'Elai Cheesecake',
+                                image: 'images/elaicheesecake.png',
+                                category: 'disert',
+                                label: 'New',
+                                price: '4.99',
+                                description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerigola olives, ripe vine cherry tomatoes, vidalia onion, Guntur chillies and Buffalo Paneer.',
+                                comment:''
+                            }];
+    this.dishes = dishes;
+    
+    var tab=1;
+    
+    var filtText="";
+    
+    var select=function(setTap){
+      this.tap=setTap;
+     /* switch (setTap){
+         case 2: this.filtText="appetizer";
+         case 3: this.filtText="mains";
+         case 4: this.filtText="disert";
+         default: this.filtText="";
+      }*/
+    };
+    
+    this.select = select;
+    
+    var isSelected = function(checkTap){
+        return (checkTap === this.tab);
+    };
+    
+    this.isSlected=isSelected;
+        
+    });
+    
+ 
+   
+</script>
 </body>
 
 </html>
