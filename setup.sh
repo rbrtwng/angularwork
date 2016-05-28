@@ -43,7 +43,7 @@ echo "***installing bower***"
 bower > /dev/null 2>&1
 
 if (( $? )); then
-      npm install -g bower > /dev/null 2>&1
+      sudo npm install bower > /dev/null 2>&1
     if (( $? )); then
       echo "Unable to install bower"
       exit 1
@@ -54,5 +54,50 @@ fi
 
 echo "***installed bower***"
 
+echo "***installing grunt***"
+
+grunt > /dev/null 2>&1
+
+if (( $? )); then
+      sudo npm install grunt-cli > /dev/null 2>&1
+    if (( $? )); then
+      echo "Unable to install grunt"
+      exit 1
+    fi
+else
+    echo "grunt is already installed"
+fi
+
+echo "***installed grunt***"
+
+cd conFusion
+
+sudo npm install grunt --save-dev
+
+sudo npm install grunt-contrib-jshint --save-dev
+
+sudo npm install jshint-stylish --save-dev
+
+sudo npm install time-grunt --save-dev
+
+sudo npm install jit-grunt --save-dev
+
+sudo npm install grunt-contrib-copy --save-dev
+
+sudo npm install grunt-contrib-clean --save-dev
+
+sudo npm install grunt-contrib-concat --save-dev
+
+sudo npm install grunt-contrib-cssmin --save-dev
+
+sudo npm install grunt-contrib-uglify --save-dev
+
+sudo npm install grunt-filerev --save-dev
+
+sudo npm install grunt-usemin --save-dev
+
+sudo npm install grunt-contrib-watch --save-dev
+
+sudo npm install grunt-contrib-connect --save-dev
 
 

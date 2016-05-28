@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/nix/store/9vkhrpycs37cl5i8pywqkdz22773bybf-nodejs-0.10.38/bin/node',
+1 verbose cli   '/mnt/shared/sbin/npm',
+1 verbose cli   '-g',
+1 verbose cli   'config',
+1 verbose cli   'set',
+1 verbose cli   'prefix',
+1 verbose cli   '/usr/local/node' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.28
+4 info config set "prefix" "/usr/local/node"
+5 error rofs EROFS, mkdir '/nix/store/9vkhrpycs37cl5i8pywqkdz22773bybf-nodejs-0.10.38/etc'
+5 error rofs This is most likely not a problem with npm itself
+5 error rofs and is related to the file system being read-only.
+5 error rofs
+5 error rofs Often virtualized file systems, or other file systems
+5 error rofs that don't support symlinks, give this error.
+6 error System Linux 4.2.0-c9
+7 error command "/nix/store/9vkhrpycs37cl5i8pywqkdz22773bybf-nodejs-0.10.38/bin/node" "/mnt/shared/sbin/npm" "-g" "config" "set" "prefix" "/usr/local/node"
+8 error cwd /home/ubuntu/workspace
+9 error node -v v0.10.28
+10 error npm -v 1.4.28
+11 error path /nix/store/9vkhrpycs37cl5i8pywqkdz22773bybf-nodejs-0.10.38/etc
+12 error code EROFS
+13 error errno 56
+14 verbose exit [ 56, true ]
