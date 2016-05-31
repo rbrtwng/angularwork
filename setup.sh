@@ -71,33 +71,3 @@ fi
 echo "***installed grunt***"
 
 cd conFusion
-
-sudo npm install grunt --save-dev
-
-sudo npm install grunt-contrib-jshint --save-dev
-
-sudo npm install jshint-stylish --save-dev
-
-sudo npm install time-grunt --save-dev
-
-sudo npm install jit-grunt --save-dev
-
-sudo npm install grunt-contrib-copy --save-dev
-
-sudo npm install grunt-contrib-clean --save-dev
-
-sudo npm install grunt-contrib-concat --save-dev
-
-sudo npm install grunt-contrib-cssmin --save-dev
-
-sudo npm install grunt-contrib-uglify --save-dev
-
-sudo npm install grunt-filerev --save-dev
-
-sudo npm install grunt-usemin --save-dev
-
-sudo npm install grunt-contrib-watch --save-dev
-
-sudo npm install grunt-contrib-connect --save-dev
-
-
