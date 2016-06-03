@@ -52,9 +52,9 @@
                 </div>
                 <div class="col-xs-5">
                 <label for="sort">  Sort by:</label>
-                <input type="text" name="sort" ng-change="ddc.reSort()" ng-model="sortValue">
+                <input type="text" name="sort"  ng-model="sortBy">
                 </div>
-                <div class="col-xs-12" ng-repeat="cmt in ddc.dish.comments | orderBy: ddc.sortBy">
+                <div class="col-xs-12" ng-repeat="cmt in ddc.dish.comments | orderBy: sortBy">
                     <blockquote>
                       <p>{{cmt.rating}} stars</p>
                       <p>{{cmt.comment}}</p>
@@ -116,9 +116,10 @@
                     };
             
             this.dish = dish;
+           /**
             this.reSort = function(){
                 this.sortBy = $scope.sortValue;
-            }
+            }**/
             
             
         });
