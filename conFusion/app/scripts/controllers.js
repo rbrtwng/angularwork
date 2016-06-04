@@ -67,11 +67,11 @@ angular.module('confusionApp')
             };
         }])
 
-        .controller('DishDetailController', ['$scope', 'manuFactory',function($scope, manuFactory) {
+        .controller('DishDetailController', ['$scope', '$routeParams','manuFactory',function($scope, $routeParams, manuFactory) {
 
        
             
-        $scope.dish = manuFactory.getDish(2);
+        $scope.dish = manuFactory.getDish(parseInt($routeParams.idt,10));
             
         }])
 
